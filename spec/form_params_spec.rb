@@ -29,6 +29,13 @@ describe "Form Params" do
         {}
       end
 
+      params do
+        requires :enable, type: Boolean, desc: "Enable or disable something"
+      end
+      patch '/items/:id/extra' do
+        {}
+      end
+
       add_swagger_documentation
     end
   end
@@ -74,6 +81,18 @@ describe "Form Params" do
               "nickname" => "PATCH-items--id---format-",
               "method" => "PATCH",
               "parameters" => [ { "paramType" => "path", "name" => "id", "description" => "id of item", "type" => "integer", "required" => true, "allowMultiple" => false, "format" => "int32" }, { "paramType" => "form", "name" => "name", "description" => "name of item", "type" => "string", "required" => true, "allowMultiple" => false } ],
+              "type" => "void"
+            }
+          ]
+        }, {
+          "path" => "/items/{id}/extra.{format}",
+          "operations" => [
+            {
+              "notes" => "",
+              "summary" => "",
+              "nickname" => "PATCH-items--id-extra---format-",
+              "method" => "PATCH",
+              "parameters" => [ {"paramType"=>"path", "name"=>"id", "description"=>"", "type"=>"string", "required"=>false, "allowMultiple"=>false}, { "paramType" => "form", "name" => "enable", "description" => "Enable or disable something", "type" => "boolean", "required" => true, "allowMultiple" => false } ],
               "type" => "void"
             }
           ]
